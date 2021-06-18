@@ -1,0 +1,37 @@
+﻿
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="general">
+        <ul class="menu-item">
+            <li class="menu-item">
+                @Html.ActionLink("Главная", "Index", "Home")
+            </li>
+            <li class="menu-item">
+                @Html.ActionLink("Войти", "Login", "Account")
+            </li>
+            <li class="menu-item">
+                @Html.ActionLink("Корзина", "Lk", "Home")
+            </li>
+            <li class="menu-item">
+                @Html.ActionLink("Модерка", "Moder", "Moder")
+            </li>
+            <li class="menu-item">
+                @User.Identity.Name
+            </li>
+        </ul>
+    </div>
+    <div class="block">
+        тута админка
+        админы
+        <br />
+
+
+    </div>
+</body>
+</html>
