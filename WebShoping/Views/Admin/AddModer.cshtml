@@ -1,4 +1,6 @@
-﻿
+﻿@model WebShoping.Models.User
+
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -29,12 +31,31 @@
     <div class="block">
         тута админка
         админы
-        <br />
-        @Html.ActionLink("Добавить пользователя", "AddModer", "Admin")
-        <br />
-        @Html.ActionLink("Модераторы", "ListModers", "Admin")
-        <br />
-        @Html.ActionLink("Список пользователей", "ListUsers", "Admin")
-    </div>
+        <h2>Добавление нового модератора</h2>
+
+        @using (Html.BeginForm())
+        {
+    <fieldset>
+        <legend>Модератор</legend>
+
+        <p>
+            Email пользователя <br />
+            @Html.EditorFor(model => model.Email)
+        </p>
+
+        <p>
+            Пароль <br />
+            @Html.EditorFor(model => model.Password)
+        </p>
+        <p>
+            Роль <br />
+            @Html.DropDownListFor(model => model.RoleId, ViewBag.Roles as SelectList)
+        </p>
+        <p>
+            <input type="submit" value="Добавить нового пользователя" />
+        </p>
+    </fieldset>
+        }
+</div>
 </body>
 </html>

@@ -1,4 +1,6 @@
-﻿
+﻿@model IEnumerable<WebShoping.Models.User>
+
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -27,14 +29,24 @@
         </ul>
     </div>
     <div class="block">
-        тута админка
-        админы
-        <br />
-        @Html.ActionLink("Добавить пользователя", "AddModer", "Admin")
-        <br />
-        @Html.ActionLink("Модераторы", "ListModers", "Admin")
-        <br />
-        @Html.ActionLink("Список пользователей", "ListUsers", "Admin")
+        Список модераторов сайта
+        <table>
+            <tr>
+                <td>Email</td>
+                <td>Пароль</td>
+            </tr>
+            @foreach (var User in Model)
+            {
+        <tr>
+            <td>@User.Email</td>
+            <td>@User.Password</td>
+
+
+            <td>@Html.ActionLink("Рекадктировать модератора", "AddPerson", "Home")</td>
+            <td>@Html.ActionLink("Удалить модератора", "DeletePerson", "Home")</td>
+        </tr>
+            }
+        </table>
     </div>
 </body>
 </html>

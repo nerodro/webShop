@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,6 +58,11 @@ namespace WebShoping.Models
             modelBuilder.Entity<Categorie>().HasData(new Categorie[] { techCategoty, pcCategory });
             modelBuilder.Entity<Product>().HasData(new Product[] { techProduct, pcProduct });
             base.OnModelCreating(modelBuilder);
+        }
+
+        internal IActionResult First()
+        {
+            throw new NotImplementedException();
         }
     }
 }

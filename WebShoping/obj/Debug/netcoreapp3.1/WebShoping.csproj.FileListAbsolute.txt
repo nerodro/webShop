@@ -85,3 +85,6 @@ D:\programming\c#\WebShoping\WebShoping\obj\Debug\netcoreapp3.1\Razor\Views\Cate
 D:\programming\c#\WebShoping\WebShoping\obj\Debug\netcoreapp3.1\Razor\Views\Categorie\Tech.cshtml.g.cs
 D:\programming\c#\WebShoping\WebShoping\obj\Debug\netcoreapp3.1\Razor\Views\Moder\AddProduct.cshtml.g.cs
 D:\programming\c#\WebShoping\WebShoping\obj\Debug\netcoreapp3.1\Razor\Views\Admin\AdminPage.cshtml.g.cs
+D:\programming\c#\WebShoping\WebShoping\obj\Debug\netcoreapp3.1\Razor\Views\Admin\ListModers.cshtml.g.cs
+D:\programming\c#\WebShoping\WebShoping\obj\Debug\netcoreapp3.1\Razor\Views\Admin\ListUsers.cshtml.g.cs
+D:\programming\c#\WebShoping\WebShoping\obj\Debug\netcoreapp3.1\Razor\Views\Admin\AddModer.cshtml.g.cs
