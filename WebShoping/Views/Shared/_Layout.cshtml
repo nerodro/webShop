@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Wesna</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="general">
+        <ul class="menu-item">
+
+            <li class="menu-item">
+                @Html.ActionLink("Главная", "Index", "Home")
+            </li>
+            @if (User.Identity.IsAuthenticated)
+            {
+<li class="menu-item">
+    @Html.ActionLink("Выйти", "Logout", "Account")
+</li>
+ }
+            else
+            {
+<li class="menu-item">
+    @Html.ActionLink("Войти", "Login", "Account")
+</li>            }
+
+            <li class="menu-item">
+                @Html.ActionLink("Корзина", "Lk", "Cart")
+            </li>
+
+            @if (User.IsInRole("moder") || User.IsInRole("admin"))
+            {
+<li class="menu-item">
+    @Html.ActionLink("Модерка", "Moder", "Moder")
+</li>
+}
+
+            @if (User.IsInRole("admin"))
+            {
+<li class="menu-item">
+    @Html.ActionLink("Админка", "AdminPage", "Admin")
+</li>            }
+            <li class="menu-item">
+                @User.Identity.Name
+            </li>
+        </ul>
+    </div>
+    <div class="container">
+        @RenderBody()
+
+    </div>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Интернет магазин, Wesna - <a asp-area="" asp-controller="Home" asp-action="Privacy">Все права защищены</a>
+            <br />
+            Наш номер телефона: 88005553535
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,47 @@
+@model IEnumerable<WebShoping.Models.Product>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="block">
+        Добро пожалость в наш интернет магазин
+        <div class="category-wrap">
+            <h3>Категории</h3>
+            <ul>
+                <li><a href="">@Html.ActionLink("Бытовая электронника", "Tech", "Categorie")</a></li>
+                <li><a href="">@Html.ActionLink("Компьютеры", "Pc", "Categorie")</a></li>
+                <li><a href="">Типографика</a></li>
+                <li><a href="">Музыка</a></li>
+                <li><a href="">Видео</a></li>
+            </ul>
+        </div>
+
+        <table>
+            <tr>
+                <td>Название</td>
+                <td>Цена</td>
+                <td>Фото</td>
+            </tr>
+            @foreach (var Product in Model)
+            {
+    <tr>
+        <td>@Product.NameProduct</td>
+        <td>@Product.Price</td>
+        <td>
+            @if (Product.PhotoProduct != null)
+            {
+    <img style='width:200px; height:400px;' src="data:image/jpeg;base64,@(Convert.ToBase64String(Product.PhotoProduct))" />}
+        </td>
+
+        <td>@Html.ActionLink("Добавить товар в корзину", "AddProductToCart", "Cart", new { Id = Product.Id })</td>
+    </tr>
+}
+        </table>
+    </div>
+</body>
+</html>

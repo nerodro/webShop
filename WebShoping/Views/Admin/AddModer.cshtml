@@ -1,0 +1,43 @@
+﻿@model WebShoping.Models.User
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+    <div class="block">
+        тута админка
+        админы
+        <h2>Добавление нового модератора</h2>
+
+        @using (Html.BeginForm())
+        {
+    <fieldset>
+        <legend>Модератор</legend>
+
+        <p>
+            Email пользователя <br />
+            @Html.EditorFor(model => model.Email)
+        </p>
+
+        <p>
+            Пароль <br />
+            @Html.EditorFor(model => model.Password)
+        </p>
+        <p>
+            Роль <br />
+            @Html.DropDownListFor(model => model.RoleId, ViewBag.Roles as SelectList)
+        </p>
+        <p>
+            <input type="submit" value="Добавить нового пользователя" />
+        </p>
+    </fieldset>
+        }
+</div>
+</body>
+</html>

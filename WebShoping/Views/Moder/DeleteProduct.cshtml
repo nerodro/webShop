@@ -1,0 +1,26 @@
+﻿@model WebShoping.Models.Product
+<h2>Удаление товара</h2>
+<dl>
+    <dt>Login</dt>
+    <dd>
+        @Html.DisplayFor(model => model.NameProduct)
+    </dd>
+
+    <dt>Фото</dt>
+    <dd>
+        @Html.DisplayFor(model => model.PhotoProduct)
+    </dd>
+    <dt>Количество</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Count)
+    </dd>
+    <dt>Цена</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Price)
+    </dd>
+</dl>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Удалить" />
+}

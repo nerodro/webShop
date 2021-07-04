@@ -1,0 +1,42 @@
+﻿@model WebShoping.Models.Product
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="block">
+        @using (Html.BeginForm("EditProduct", "Moder", FormMethod.Post))
+        {
+        <fieldset>
+            @Html.HiddenFor(m => m.Id)
+            <p>
+                @Html.LabelFor(m => m.NameProduct, "Название продукта")
+                <br />
+                @Html.EditorFor(m => m.NameProduct)
+            </p>
+            <p>
+                @Html.LabelFor(m => m.Price, "Цена")
+                <br />
+                @Html.EditorFor(m => m.Price)
+            </p>
+            <p>
+                @Html.LabelFor(m => m.Count, "Цена")
+                <br />
+                @Html.EditorFor(m => m.Count)
+            </p>
+            <p>
+                Категория <br />
+                @Html.DropDownListFor(model => model.CategoriesId, ViewBag.Categories as SelectList)
+            </p>
+            <p><input type="submit" value="Отправить" /></p>
+             
+        </fieldset>
+        }
+        
+    </div>
+</body>
+</html>

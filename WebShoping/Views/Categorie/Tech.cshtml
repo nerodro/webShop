@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WebShoping.Models.Product>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="block">
+        Добро пожалость в наш интернет магазин
+        Категорий
+        <br />
+        @Html.ActionLink("Техника", "Tech", "Categorie")
+        <br />
+        @Html.ActionLink("Компы", "Pc", "Categorie")
+        <br />
+        <table>
+            <tr>
+                <td>Название</td>
+                <td>Цена</td>
+                <td>Фото</td>
+            </tr>
+            @foreach (var Product in Model)
+            {
+                <tr>
+                    <td>@Product.NameProduct</td>
+                    <td>@Product.Price</td>
+                    <td>
+                        @if (Product.PhotoProduct != null)
+                        {
+                            <img style='width:80px; height:60px;' src="data:image/jpeg;base64,@(Convert.ToBase64String(Product.PhotoProduct))" />
+                        }
+                    </td>
+
+                    <td>@Html.ActionLink("Добавить товар в корзину", "AddProductToCart", "Home")</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

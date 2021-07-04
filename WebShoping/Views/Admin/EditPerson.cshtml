@@ -1,0 +1,40 @@
+﻿@model WebShoping.Models.User
+@{
+    ViewBag.Title = "Edit";
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="block">
+        @using (Html.BeginForm())
+        {
+<fieldset>
+    <legend>Пользователи</legend>
+
+    @Html.HiddenFor(model => model.Id)
+
+    <p>
+        Имя <br />
+        @Html.EditorFor(model => model.Email)
+    </p>
+
+    <p>
+        Возраст <br />
+        @Html.EditorFor(model => model.Password)
+    </p>
+    <p>
+        Роль <br />
+        @Html.DropDownListFor(model => model.RoleId, ViewBag.Roles as SelectList)
+    </p>
+    <p>
+        <input type="submit" value="Сохранить" />
+    </p>
+</fieldset>}
+    </div>
+</body>
+</html>

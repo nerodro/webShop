@@ -1,0 +1,34 @@
+﻿@model IEnumerable<WebShoping.Models.User>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="block">
+        Список модераторов сайта
+        @Html.ActionLink("Добавить модератора", "AddModer", "Admin")
+        <table>
+            <tr>
+                <td>Email</td>
+                <td>Пароль</td>
+            </tr>
+            @foreach (var User in Model)
+            {
+        <tr>
+            <td>@User.Email</td>
+            <td>@User.Password</td>
+
+
+            <td>@Html.ActionLink("Рекадктировать пользователя", "EditPerson", "Admin", new { Id = User.Id })</td>
+            <td>@Html.ActionLink("Удалить пользователя", "Delete", "Admin", new { Id = User.Id })</td>
+        </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

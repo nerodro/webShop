@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WebShoping.Models.Cart>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="block">
+        <div id="app">
+            Ваша корзина товаров
+            @User.Identity.Name
+            <table>
+                <tr>
+                    <td>Название</td>
+                    <td>Цена</td>
+                    <td>Количество</td>
+                    <td>Итого</td>
+                </tr>
+                @foreach (var Cart in Model)
+                {
+        <tr>
+            <td>@Cart.NameProduct</td>
+            <td>@Cart.Price</td>
+            <td>@Cart.Count</td>
+            <td>@((Cart.Count * Cart.Price).ToString("# руб"))</td>
+            <td>@Html.ActionLink("Удалить товар из корзины", "DeleteProductFromCart", "Cart", new { Id = Cart.Id })</td>
+        </tr>}
+            </table>
+            @Html.ActionLink("Купить", "Pay", "Cart")
+        </div>
+        </div>
+</body>
+</html>
