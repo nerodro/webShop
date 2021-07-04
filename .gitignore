@@ -1,4 +1,7 @@
 *.vs/
+.vs/WebShoping/DesignTimeBuild/.dtbcache.v2
+
+
 #Ignore thumbnails created by Windows
 Thumbs.db
 #Ignore files built by Visual Studio
@@ -29,3 +32,4 @@ _ReSharper*/
 [Tt]est[Rr]esult*
 #Nuget packages folder
 packages/
+
