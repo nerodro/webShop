@@ -34,7 +34,7 @@ namespace WebShoping.Controllers
             {
                 cart.NameProduct = product.NameProduct;
                 cart.Price = product.Price;
-                //cart.Count = product.Count;
+                cart.Count = product.Count;
                 cart.ProductId = product.Id;
                 return View(cart);
             }
