@@ -34,7 +34,7 @@ namespace WebShoping.Controllers
             {
                 cart.NameProduct = product.NameProduct;
                 cart.Price = product.Price;
-                cart.Count = product.Count;
+                //cart.Count = product.Count;
                 cart.ProductId = product.Id;
                 return View(cart);
             }
@@ -54,7 +54,7 @@ namespace WebShoping.Controllers
         }
 
         [HttpGet]
-        public IActionResult DeleteProductFromCart(int Id)
+        public IActionResult DeleteProductFromCart(int? Id)
         {
             Cart cart = _context.Carts.Find(Id);
             FindId(Id: Id);
@@ -69,8 +69,9 @@ namespace WebShoping.Controllers
             return RedirectToAction("Lk", "Cart");
         }
 
-        public IActionResult Pay()
+        public IActionResult Pay(int? Id)
         {
+            
             return View();
         }
         public IActionResult Payed()

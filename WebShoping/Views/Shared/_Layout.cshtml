@@ -9,40 +9,54 @@
 <body>
     <div class="general">
         <ul class="menu-item">
-
+            <li class="menu-item">
+                <div class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn"> Категорий</button>
+                    <div id="my Dropdown" class="dropdown-content">
+                        <input type="text" placeholder="Поиск.." id="myInput" onkeyup="filterFunction()">
+                        <a href="#">@Html.ActionLink("Бытовая электронника", "Tech", "Categorie")</a>
+                        <a href="#">@Html.ActionLink("Компьютеры", "Pc", "Categorie")</a>
+                        <a href="#">Блог</a>
+                        <a href="#">Контакты</a>
+                        <a href="#">Обычный</a>
+                        <a href="#">Поддержка</a>
+                        <a href="#">Инструменты</a>
+                    </div>
+                </div>
+            </li>
             <li class="menu-item">
                 @Html.ActionLink("Главная", "Index", "Home")
             </li>
             @if (User.Identity.IsAuthenticated)
             {
-<li class="menu-item">
-    @Html.ActionLink("Выйти", "Logout", "Account")
-</li>
- }
-            else
-            {
-<li class="menu-item">
-    @Html.ActionLink("Войти", "Login", "Account")
-</li>            }
-
             <li class="menu-item">
-                @Html.ActionLink("Корзина", "Lk", "Cart")
+                @Html.ActionLink("Выйти", "Logout", "Account")
+            </li> }
+                        else
+                        {
+            <li class="menu-item">
+                @Html.ActionLink("Войти", "Login", "Account")
             </li>
+            }
 
-            @if (User.IsInRole("moder") || User.IsInRole("admin"))
-            {
-<li class="menu-item">
-    @Html.ActionLink("Модерка", "Moder", "Moder")
-</li>
-}
+                        <li class="menu-item">
+                            @Html.ActionLink("Корзина", "Lk", "Cart")
+                        </li>
 
-            @if (User.IsInRole("admin"))
-            {
-<li class="menu-item">
-    @Html.ActionLink("Админка", "AdminPage", "Admin")
-</li>            }
+                        @if (User.IsInRole("moder") || User.IsInRole("admin"))
+                        {
             <li class="menu-item">
-                @User.Identity.Name
+                @Html.ActionLink("Модерка", "Moder", "Moder")
+            </li>            }
+
+                        @if (User.IsInRole("admin"))
+                        {
+            <li class="menu-item">
+                @Html.ActionLink("Админка", "AdminPage", "Admin")
+            </li>
+            }
+            <li class="menu-item">
+               @User.Identity.Name
             </li>
         </ul>
     </div>
